@@ -1,0 +1,56 @@
+# +-------------------+
+# | Termminal Aliases |
+# +-------------------+
+
+# Basic aliases
+alias pg="ps aux | grep $1"
+
+# Set vim as default editor
+export EDITOR="/usr/bin/vim"
+export VISUAL="/usr/bin/vim"
+
+# Alias v to vim
+alias v="vim "
+
+# Alias python to python3
+alias python="python3 "
+
+# XClip copy and paste aliases
+# alias xc='xclip -selection clipboard'
+# alias xp='xclip -o -selection clipboard'
+
+# System update aliases
+alias upsys='sudo pacman -Syyu'
+alias get='sudo pacman -S --noconfirm $1'
+
+# Config aliases
+alias brc='vim ~/.aliases_func'
+alias vrc='vim ~/.vimrc'
+alias zrc='vim ~/.zshrc'
+
+# replace cat with batcat
+alias cat='batcat '
+
+# Know public IP
+alias pub='http --body --json ifconfig.co/json | grep "\"ip\"\|\"city\"\|\"country\"" | sort'
+
+# +--------------------+
+# | Termminal Funtions |
+# +--------------------+
+
+# Countdown Timer
+timer() {
+    seconds=$@;
+    date1=$((`date +%s` + $seconds));
+    while [ "$date1" -ge `date +%s` ]; do
+        echo -ne "$(date -u --date @$(($date1 - `date +%s` )) +%H:%M:%S)\r";
+    done
+    echo -ne "Time Up!!! Done counting $seconds seconds.\n"
+}
+
+# Git add, commit, and push
+acp () {
+    gaa
+    gc -m $@
+    ggp
+}
