@@ -89,7 +89,7 @@ call plug#end()
 " Table mode setting
 let g:table_mode_corner_corner='+'
 
-# Ctrl+n for nerdtree
+" Ctrl+n for nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
 "Set persistent undo history in the .VIM_UNDO_FILES directory
